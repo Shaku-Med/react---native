@@ -1,0 +1,123 @@
+import * as React from 'react';
+import { ScrollView, StyleSheet, Image, TouchableOpacity } from 'react-native';
+
+import EditScreenInfo from '../components/EditScreenInfo';
+import { Text, View } from '../components/Themed';
+import { RootTabScreenProps } from '../types';
+import useColorScheme from '../hooks/useColorScheme';
+import * as Haptics from 'expo-haptics';
+import Sound from 'react-native-sound'
+import { Audio } from 'expo-av';
+
+
+
+export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
+
+  const [sound, setSound] = React.useState();
+ 
+  async function playSound() {
+
+        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy)
+        navigation.navigate("Statusvid")
+
+    console.log('Loading Sound');
+    const { sound } = await Audio.Sound.createAsync(
+      require('../assets/images/fireboy.mp3')
+      
+    );
+    setSound(sound);
+
+    console.log('Playing Sound');
+    await sound.playAsync();
+  }
+
+  React.useEffect(() => {
+    return sound
+      ? () => {
+          console.log('Unloading Sound');
+          sound.unloadAsync(); }
+      : undefined;
+  }, [sound]);
+
+  return (
+    <ScrollView>
+       <View style={styles.mainview}>
+      <Text style={styles.statustext}>
+        Status
+        </Text>
+      </View>
+      <View style={styles.mainstyles}>
+        <TouchableOpacity onPressOut={playSound} >
+          <View  style={styles.outside} >
+        <Image style={styles.profilepic} source={{ uri: "https://images.pexels.com/photos/10299953/pexels-photo-10299953.jpeg" }} />
+        <View style={styles.inside}>
+          <Text style={styles.mtxt}>Mohamed Brima Amara</Text>
+          <Text style={styles.lortxt}>2.hrs ago</Text>
+       </View>
+      </View>
+        </TouchableOpacity>
+      </View>
+   </ScrollView>
+  );
+}
+
+const styles = StyleSheet.create({
+
+  statustext: { 
+    fontSize: 40,
+    fontWeight: "bold",
+    paddingVertical: 20,
+    paddingHorizontal: 20,
+  },
+  mainview: { 
+    backgroundColor: "transparent"
+  },
+  profilepic: { 
+
+     width: 40,
+    height: 40,
+    borderRadius: 50
+
+
+  },
+  inside: { 
+
+    backgroundColor: "transparent",
+    flexDirection: "column",
+    padding: 10,
+    width: "100%"
+
+  },
+  outside: { 
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    overflow: 'hidden',
+    width: "100%",
+    padding: 10,
+    marginTop: 10,
+    marginBottom: 10,
+    borderRadius: 10
+
+  },
+  mtxt: { 
+    fontSize: 23
+  },
+  lortxt: { 
+    fontSize: 10,
+    overflow: 'hidden',
+    width: "100%",
+    wordBreak: "break-word",
+    wordWrap: "break-word"
+  },
+  mainstyles: { 
+
+     backgroundColor: "transparent",
+    flexDirection: "column",
+    padding: 10,
+    width: "100%"
+
+  }
+ 
+});
+
