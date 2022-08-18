@@ -1,0 +1,108 @@
+body {
+  background-image: linear-gradient(
+      to bottom,
+      var(--dmm) 30%,
+      var(--mainBg) 50%
+    ),
+    url("https://images.pexels.com/photos/13146110/pexels-photo-13146110.jpeg");
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+.nice_imgbg {
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  text-align: center;
+}
+
+.nice_imgbg img {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  object-fit: cover;
+}
+
+.nice_imgbg p {
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.formPart {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 700px;
+  padding: 10px;
+}
+
+.formPart label {
+  width: 100%;
+  padding: 10px;
+  background: var(--maincl);
+  color: var(--mainBg);
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.formPart button {
+  width: 100%;
+  padding: 10px;
+  background: blue;
+  color: white;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border: none;
+  outline: none;
+}
+
+#sendbtn {
+  display: none;
+}
+
+#sendbtn.sendbtn {
+  display: block;
+}
+
+@media screen and (max-width: 1000px) {
+  body {
+    height: 100%;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  body {
+    height: 100vh;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .nice_imgbg {
+    padding: 10px;
+  }
+
+  body {
+    height: 100vh;
+  }
+}

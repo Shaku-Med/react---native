@@ -1,0 +1,347 @@
+:root {
+  --mainBg: white;
+  --maincl: black;
+  --dimcl: #eaeaea;
+  --anodim: #f4f3f3;
+  --dmm: #eaeaeac9;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--mainBg);
+  overflow-x: hidden;
+  touch-action: manipulation;
+  color: var(--maincl);
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.chat_sides {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fri_side {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 10px;
+  position: fixed;
+  width: 100%;
+  max-width: 400px;
+  top: 0;
+  flex-direction: column;
+  overflow: auto;
+  overflow-x: hidden;
+  background: var(--anodim);
+  height: 100vh;
+}
+
+.fri_side img {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  object-fit: cover;
+  transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+}
+
+.youm {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 10px;
+  padding: 10px;
+  background: var(--dimcl);
+  position: sticky;
+  top: 0;
+  border-bottom: 1px solid var(--mainBg);
+}
+
+.first_friends {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-direction: column;
+  width: 100%;
+}
+
+.firstf {
+  width: 100%;
+  padding: 5px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border: 1px solid var(--mainBg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  overflow: hidden;
+}
+
+.firstf:hover {
+  background: var(--dimcl);
+  cursor: pointer;
+}
+
+.firstf:hover img {
+  width: 400px;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  object-position: center;
+  height: 400px;
+}
+
+.firstf:hover .capin span {
+  display: none;
+}
+
+.firstf:hover p {
+  display: none;
+}
+
+.closes {
+  font-size: 1.5rem;
+  margin-right: 10px;
+  display: none;
+}
+
+.youm {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.chat_sidese {
+  margin-left: 400px;
+  width: 100%;
+}
+
+.user_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--dimcl);
+  width: 100%;
+  padding: 18px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  border-left: 1px solid var(--mainBg);
+  z-index: 20000000000;
+}
+
+.user_header img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  object-fit: cover;
+}
+
+.last_side {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 2rem;
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+}
+
+.bars {
+  display: none;
+}
+
+.fri_pp {
+  position: relative;
+}
+
+.status {
+  position: absolute;
+  bottom: 0;
+  left: 30px;
+  width: 20px;
+  height: 20px;
+  background: green;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+.logour_drop {
+  position: relative;
+}
+
+.drop_down {
+  position: absolute;
+  top: 30px;
+  display: block;
+  right: 20px;
+  width: 100px;
+  background: var(--dimcl);
+  height: 100px;
+  padding: 10px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.drop_down {
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+}
+
+.drop_down.drops {
+  visibility: visible;
+  opacity: 1;
+}
+
+.drop_down a {
+  width: 100%;
+  margin-bottom: 10px;
+  color: var(--maincl);
+}
+
+.wanted_d {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 200px;
+  text-align: center;
+  max-width: 200px;
+  background: var(--anodim);
+  box-shadow: 2px 2px 5px #00000087;
+  padding: 10px;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  z-index: 60000000000000000;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.wanted_d.wan {
+  visibility: visible;
+  opacity: 1;
+}
+
+.simdim {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--dmm);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  z-index: 50000000000000000;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.simdim.smd {
+  visibility: visible;
+  opacity: 1;
+}
+
+.optionss {
+  width: 100%;
+}
+
+.optionss div {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 900px) {
+  .fri_side {
+    left: -100%;
+    transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    width: 100%;
+  }
+
+  .fri_side.navbars {
+    left: 0;
+  }
+
+  .closes {
+    display: flex;
+  }
+
+  .chat_sidese {
+    margin-left: 0;
+    transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+  }
+
+  .chat_sidese.chat_clo {
+    left: 100%;
+    position: fixed;
+    top: 0;
+  }
+
+  .bars {
+    display: flex;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --mainBg: #373738;
+    --maincl: white;
+    --dimcl: #373738;
+    --anodim: #28282b;
+    --dmm: #191a1dc9;
+  }
+}
